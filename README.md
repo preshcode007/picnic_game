@@ -1,8 +1,19 @@
-# Picnic
+# Picnic Game
 
-https://www.youtube.com/playlist?list=PLhOuww6rJJNMuQohHrNxRjhFTR9UlUOIa
+It is not just a game...
+so what is the purpose of this tiny python project, you might be asking.
 
-Write a program that will correctly format the items we're taking on our picnic.
+With this picnic_game project, I have been able to:
+- write a program that accepts multiple positional arguments
+- use if, elif, and else to handle conditional branching with three or more
+options
+- find and alter items in a list
+- format a list into a new string
+
+
+
+
+The program that will correctly format the items we're taking on our picnic.
 For one item, it should print the one item:
 
 ```
@@ -39,6 +50,20 @@ usage: picnic.py [-h] [-s] str [str ...]
 picnic.py: error: the following arguments are required: str
 ```
 
+if the `--comma` flag is present, then the  the Oxford comma is removed:
+
+```
+$ ./picnic.py sandwiches chips cake
+You are bringing sandwiches, chips and cake.
+```
+
+if the `--char` flag is present, the items are seperated by the given character:
+
+```
+$ ./picnic.py sandwiches chips cake
+You are bringing sandwiches: chips: cake
+```
+
 Respond to `-h` and `--help` with a longer usage:
 
 ```
@@ -46,31 +71,3 @@ $ ./picnic.py -h
 usage: picnic.py [-h] [-s] str [str ...]
 
 Picnic game
-
-positional arguments:
-  str           Item(s) to bring
-
-optional arguments:
-  -h, --help    show this help message and exit
-  -s, --sorted  Sort the items (default: False)
-```
-
-Run the test suite to ensure your program is correct:
-
-```
-$ make test
-pytest -xv test.py
-============================= test session starts ==============================
-...
-collected 7 items
-
-test.py::test_exists PASSED                                              [ 14%]
-test.py::test_usage PASSED                                               [ 28%]
-test.py::test_one PASSED                                                 [ 42%]
-test.py::test_two PASSED                                                 [ 57%]
-test.py::test_more_than_two PASSED                                       [ 71%]
-test.py::test_two_sorted PASSED                                          [ 85%]
-test.py::test_more_than_two_sorted PASSED                                [100%]
-
-============================== 7 passed in 0.51s ===============================
-```
